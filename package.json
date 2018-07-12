@@ -1,0 +1,22 @@
+{
+    "name": "wollheim-vision",
+    "version": "1.0.0",
+    "description": "The home of The Fuel Rats Mischief - Website",
+    "main": "start.js",
+    "scripts": {
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/FuelRats/wollheim-vision.git"
+    },
+    "contributors": [
+        "Clapton",
+        "NoLifeKing"
+    ],
+    "license": "GPL3",
+    "bugs": {
+      "url": "https://github.com/FuelRats/wollheim-vision/issues"
+    },
+    "homepage": "https://wollheim.vision"
+  }
+  
