@@ -2,14 +2,16 @@ doctype
 html
   head
     title #{title} - Wollheim Vision
-    link(rel='stylesheet', href='elk.min.css')
+    block headerscripts
+    block stylesheets
+      link(rel='stylesheet', href='/stylesheets/style.css')
+      link(rel='stylesheet', href='/stylesheets/elk.min.css')
+      link(rel='stylesheet', href='/stylesheets/wollheim.css')
   body
-    header
-      h1 Wollheim Vision
-    .container
-      .main-content
-        block content
-      .side-content
-        block sidebar
-    footer
-      p © The Fuel Rats Mischief 2018
+    div(class='container', role='application')
+      div(id='header-container')
+        header(class='banner', role='banner')
+          block sidebar
+            p Testing
+      main(id='page-container', class='page')
+        h1 test
