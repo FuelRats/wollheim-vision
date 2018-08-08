@@ -1,9 +1,9 @@
 include includes/layout_head.pug
 
   div(class='background-video')
-    iframe(frameborder='0', height='100%', width='100%', src='https://www.youtube.com/embed/W75DQvTJeoA?modestbranding=1&autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1&playlist=aMDzqLzBdtI,K1tprJmcFU8,W75DQvTJeoA', allow='autoplay; encrypted-media')
+    video(src='videos/wollheim_background_video_no_sound.mp4', autoplay='1', loop='1')
 
   include includes/menu.pug
 
-  main(id='page-container', class='page')
-    h1 test
+  main(id='page-container', class='page', style='height: 100%;')
+    include includes/under_construction.pug

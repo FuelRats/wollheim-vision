@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Sintony');
+
 body {
     background: #1a1a1a;
-    color: #FFF;
+    font-family: 'Sintony', sans-serif;
+    color: #FF7100;
 }
 
 .background-video {
@@ -25,7 +28,7 @@ body {
     .background-video { width: 300%; left: -100%; }
 }
 
-.background-video iframe {
+.background-video video {
     position: absolute;
     top: 0;
     left: 0;
@@ -38,4 +41,14 @@ body {
     padding: 0;
     margin: 0;
     z-index: 2;
+}
+
+.under_construction_banner {
+    background-color: rgba(193, 71, 0, 0.41);
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 2px solid rgba(238, 73, 0, 0.41);
+    border-bottom: 2px solid rgba(238, 73, 0, 0.41);
 }

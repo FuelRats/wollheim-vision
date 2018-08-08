@@ -9,7 +9,7 @@
         "url": "https://github.com/FuelRats/wollheim-vision.git"
     },
     "scripts": {
-        "run": "node start.js"
+        "fire-limpets": "node start.js"
     },
     "contributors": [
         "Clapton",
