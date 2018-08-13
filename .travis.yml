@@ -4,6 +4,7 @@ addons:
   - mozzarella.fuelrats.com
 cache: yarn
 script:
+- yarn
 - echo "I'm not adding any tests yet."
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_54025d07d46c_key -iv $encrypted_54025d07d46c_iv -in deploy_key.enc -out /tmp/deploy_rsa -d
