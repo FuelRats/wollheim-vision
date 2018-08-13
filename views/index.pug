@@ -1,7 +1,9 @@
 include includes/layout_head.pug
 
   div(class='background-video')
-    video(src='videos/background', autoplay='1', loop='1', muted)
+    video(autoplay='1', loop='1', muted)
+      source(src='videos/background.webm' type='video/webm')
+      source(src='videos/background.mp4' type='video/mp4')
 
   include includes/menu.pug
 
