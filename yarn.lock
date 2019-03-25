@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@fuelrats/eslint-config@^0.10.2":
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/@fuelrats/eslint-config/-/eslint-config-0.10.2.tgz#0bf559ab545d2a9e6ec7c48395f19bd88c9dd7ef"
+  integrity sha512-hfBMSKHZfLTbOU0h+xlk+GQ7OAzlVyyB/HYOQ2uqShmI9ea3TVc5chd0DvmGabz1osnhrZbBvi2cZq6iWR3JyQ==
+  dependencies:
+    eslint-restricted-globals "^0.2.0"
+
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.4.tgz#bfd5b0d0d1ba13e351dff65b6e52783b816826c8"
@@ -220,6 +227,11 @@ encodeurl@~1.0.2:
 escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
+
+eslint-restricted-globals@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-restricted-globals/-/eslint-restricted-globals-0.2.0.tgz#7729f326af97bec7a7e56d9f7d9c064b79285c50"
+  integrity sha512-kwYJALm5KS2QW3Mc1PgObO4V+pTR6RQtRT65L1GQILlEnAhabUQqGAX7/qUjoQR4KZJKehWpBtyDEiDecwmY9A==
 
 esutils@^2.0.2:
   version "2.0.2"

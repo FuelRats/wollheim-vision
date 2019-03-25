@@ -21,13 +21,13 @@ app.use(stylus.middleware({
 }));
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.render('index', {
         title: 'Home'
     })
 });
 
-app.get('/videos/background.webm', function(req, res) {
+app.get('/videos/background.webm', function (req, res) {
     const path = './public/videos/wollheim.webm'
     const stat = fs.statSync(path)
     const fileSize = stat.size
@@ -35,11 +35,14 @@ app.get('/videos/background.webm', function(req, res) {
     if (range) {
         const parts = range.replace(/bytes=/, "").split("-")
         const start = parseInt(parts[0], 10)
-        const end = parts[1]
-            ? parseInt(parts[1], 10)
-            : fileSize-1
-        const chunksize = (end-start)+1
-        const file = fs.createReadStream(path, {start, end})
+        const end = parts[1] ?
+            parseInt(parts[1], 10) :
+            fileSize - 1
+        const chunksize = (end - start) + 1
+        const file = fs.createReadStream(path, {
+            start,
+            end
+        })
         const head = {
             'Content-Range': `bytes ${start}-${end}/${fileSize}`,
             'Accept-Ranges': 'bytes',
@@ -58,7 +61,7 @@ app.get('/videos/background.webm', function(req, res) {
     }
 });
 
-app.get('/videos/background.mp4', function(req, res) {
+app.get('/videos/background.mp4', function (req, res) {
     const path = './public/videos/wollheim_background_video_no_sound.mp4'
     const stat = fs.statSync(path)
     const fileSize = stat.size
@@ -66,11 +69,14 @@ app.get('/videos/background.mp4', function(req, res) {
     if (range) {
         const parts = range.replace(/bytes=/, "").split("-")
         const start = parseInt(parts[0], 10)
-        const end = parts[1]
-            ? parseInt(parts[1], 10)
-            : fileSize-1
-        const chunksize = (end-start)+1
-        const file = fs.createReadStream(path, {start, end})
+        const end = parts[1] ?
+            parseInt(parts[1], 10) :
+            fileSize - 1
+        const chunksize = (end - start) + 1
+        const file = fs.createReadStream(path, {
+            start,
+            end
+        })
         const head = {
             'Content-Range': `bytes ${start}-${end}/${fileSize}`,
             'Accept-Ranges': 'bytes',

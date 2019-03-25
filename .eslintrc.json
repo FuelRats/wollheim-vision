@@ -1,0 +1,6 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": "@fuelrats/eslint-config"
+}
