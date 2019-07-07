@@ -58,7 +58,7 @@ app.get("/screenshots", function(req, res) {
 
 	let galleryHtml = `<div class="screenshotHolder">${fileList
 		.map(i => {
-			return `<img class="screenshot-image" src="${_getGalleryURL(
+			return `<img class="screenshot-image" loading="lazy" src="${_getGalleryURL(
 				i
 			)}" />`;
 		})
