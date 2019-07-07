@@ -47,6 +47,10 @@ function walkSync(dir, filelist = []) {
 	return filelist;
 }
 
+app.get("/upload", function(req, res) {
+	res.redirect("https://fuelrats.cloud/s/eXqRPLAGfdZCMr4");
+});
+
 app.get("/screenshots", function(req, res) {
 	const fileList = walkSync(galleryImagesPath);
 
