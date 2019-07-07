@@ -56,8 +56,7 @@ app.get("/screenshots", function(req, res) {
 		)}`;
 	}
 
-	let galleryHtml = `Oh hai<br />
-    <div class="screenshotHolder">${fileList
+	let galleryHtml = `<div class="screenshotHolder">${fileList
 		.map(i => {
 			return `<img class="screenshot-image" src="${_getGalleryURL(
 				i
