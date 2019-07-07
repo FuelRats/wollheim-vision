@@ -1,38 +1,77 @@
-const express = require("express"),
-	compile = require("./lib/better-template-literal");
+"use strict";
 
-const fs = require("fs");
+const express = require("express"),
+	esDyn = require("es6-dynamic-template"),
+	path = require("path");
+
+const fs = require("fs"),
+	fsLoadCache = require("./fsCache");
 
 const app = express();
 
 app.set("views", "views");
 app.use(express.static("public"));
 
-const layout_head = compile(
-	fs.readFileSync("./views/includes/layout_head.tl", "utf8")
-);
-const layout_footer = compile(
-	fs.readFileSync("./views/includes/layout_footer.tl", "utf8")
+const galleryImagesPath = process.env.GALLERYPATH || "public/testimages";
+
+app.use("/images/screenshots", express.static(galleryImagesPath));
+
+const layout_head_html = fsLoadCache("./views/includes/layout_head.tl", "utf8");
+const layout_footer_html = fsLoadCache(
+	"./views/includes/layout_footer.tl",
+	"utf8"
 );
 
 app.get("/", function(req, res) {
-	const index_file = compile(fs.readFileSync("./views/index.tl", "utf8"));
-
-	console.log(
-		index_file({
-			layout_head: layout_head({
+	res.send(
+		esDyn(fsLoadCache("./views/index.tl", "utf8"), {
+			layout_head: esDyn(layout_head_html, {
 				title: "Home"
 			}),
-			layout_footer: layout_footer()
+			layout_footer: esDyn(layout_footer_html)
 		})
 	);
+});
+
+function walkSync(dir, filelist = []) {
+	fs.readdirSync(dir).forEach(file => {
+		const dirFile = path.join(dir, file);
+		try {
+			filelist = walkSync(dirFile, filelist);
+		} catch (err) {
+			if (err.code === "ENOTDIR" || err.code === "EBUSY")
+				filelist = [...filelist, dirFile];
+			else throw err;
+		}
+	});
+	return filelist;
+}
+
+app.get("/screenshots", function(req, res) {
+	const fileList = walkSync(galleryImagesPath);
+
+	function _getGalleryURL(pathToFile) {
+		return `/images/screenshots/${pathToFile.substr(
+			galleryImagesPath.length + 1
+		)}`;
+	}
+
+	let galleryHtml = `Oh hai<br />
+    <div class="screenshotHolder">${fileList
+		.map(i => {
+			return `<img class="screenshot-image" src="${_getGalleryURL(
+				i
+			)}" />`;
+		})
+		.join("")}</div>`;
 
 	res.send(
-		index_file({
-			layout_head: layout_head({
-				title: "Home"
+		esDyn(fsLoadCache("./views/screenshots.tl", "utf8"), {
+			layout_head: esDyn(layout_head_html, {
+				title: "Screenshots"
 			}),
-			layout_footer: layout_footer()
+			galleryHtml,
+			layout_footer: esDyn(layout_footer_html)
 		})
 	);
 });

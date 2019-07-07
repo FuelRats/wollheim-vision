@@ -1,4 +1,5 @@
-node_modules
 .idea
-deploy_key
 .vscode
+node_modules
+deploy_key
+public/testimages/*

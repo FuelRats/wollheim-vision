@@ -12,6 +12,11 @@ body {
 	height: 100%;
 }
 
+.mainBody.screenshots {
+	position: unset;
+	height: unset;
+}
+
 .background-video {
 	position: fixed;
 	z-index: -99;
@@ -63,4 +68,14 @@ body {
 	padding-bottom: 30px;
 	border-top: 2px solid rgba(238, 73, 0, 0.41);
 	border-bottom: 2px solid rgba(238, 73, 0, 0.41);
+}
+
+.screenshotHolder {
+	display: grid;
+	grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+.screenshot-image {
+	object-fit: scale-down;
+	max-width: 100%;
 }
