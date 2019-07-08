@@ -19,7 +19,7 @@ module.exports = function(keys) {
 					<div class="under_construction_banner">
 						<h1>Wollheim Vision</h1>
 						<h3>A transport is on it's way</h3>
-						<a href="/screenshots">View player submitted screenshots</a>
+						<a href="/screenshots">View player submitted screenshots</a><br />
 						<a href="/tools">View available tools</a>
 					</div>
 				</div>

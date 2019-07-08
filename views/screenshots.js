@@ -23,7 +23,8 @@ module.exports = function(keys) {
         <div class='nm row hcenter vcenter' style='height: 100%;'>
             <div class='under_construction_banner'>
                 <h1>Wollheim Vision</h1>
-                <b>Here are some screenshots from our rats!</b>
+                <b>Here are some screenshots from our rats!</b><br />
+                <a href="/upload" target="_blank">I wanna upload some nice screenshots too!</a>
                 <hr noshade />
                 <div class="screenshotHolder">${keys.fileList
 					.map(i => {
