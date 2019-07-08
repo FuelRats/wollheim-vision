@@ -1,9 +1,10 @@
 "use strict";
 
 const express = require("express"),
-	path = require("path");
-
-const fs = require("fs");
+	path = require("path"),
+	fs = require("fs"),
+	crypto = require("crypto"),
+	imageThumbnail = require("image-thumbnail");
 
 /* Loading pages */
 
@@ -19,6 +20,7 @@ app.set("views", "views");
 app.use(express.static("public"));
 
 const galleryImagesPath = process.env.GALLERYPATH || "public/testimages";
+const galleryThumbnailPath = process.env.THUMBNAILPATH || "public/thumbnails";
 
 app.use("/images/screenshots", express.static(galleryImagesPath));
 
@@ -64,6 +66,32 @@ app.get("/screenshots", function(req, res) {
 			layout_footer: layout_footer()
 		})
 	);
+});
+
+app.get("/images/screenshots/thumbnails/:originalFileName", function(req, res) {
+	const origFileName = req.params.originalFileName;
+	let hash = crypto
+		.createHash("md5")
+		.update(origFileName)
+		.digest("hex");
+
+	const thumbFile = path.join(
+		galleryThumbnailPath,
+		hash + path.extname(origFileName)
+	);
+	if (fs.existsSync(thumbFile)) {
+		res.send(fs.readFileSync(thumbFile));
+	} else {
+		const origPath = path.join(galleryImagesPath, origFileName);
+
+		imageThumbnail(origPath, {
+			height: 138,
+			width: 400
+		}).then(thumb => {
+			fs.writeFileSync(thumbFile, thumb);
+			res.send(thumb);
+		});
+	}
 });
 
 app.get("/videos/background.webm", function(req, res) {

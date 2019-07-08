@@ -74,7 +74,7 @@ body {
 	display: grid;
 	grid-template-columns: 33.3% 33.3% 33.3%;
 	grid-row-gap: 10px;
-	justify-items: stretch;
+	justify-items: center;
 }
 
 .screenshot-image {

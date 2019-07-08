@@ -1,6 +1,6 @@
 module.exports = function(keys) {
 	function _getGalleryURL(pathToFile) {
-		return `/images/screenshots/${pathToFile.substr(
+		return `/images/screenshots/thumbnails/${pathToFile.substr(
 			keys.galleryImagesPath.length + 1
 		)}`;
 	}
