@@ -1,5 +1,11 @@
 module.exports = function(keys) {
 	function _getGalleryURL(pathToFile) {
+		return `/images/screenshots/${pathToFile.substr(
+			keys.galleryImagesPath.length + 1
+		)}`;
+	}
+
+	function _getThumbnailURL(pathToFile) {
 		return `/images/screenshots/thumbnails/${pathToFile.substr(
 			keys.galleryImagesPath.length + 1
 		)}`;
@@ -21,9 +27,11 @@ module.exports = function(keys) {
                 <hr noshade />
                 <div class="screenshotHolder">${keys.fileList
 					.map(i => {
-						return `<img class="screenshot-image" loading="lazy" src="${_getGalleryURL(
+						return `<a href="${_getGalleryURL(
 							i
-						)}" />`;
+						)}" target="_blank"><img class="screenshot-image" loading="lazy" src="${_getThumbnailURL(
+							i
+						)}" /></a>`;
 					})
 					.join("")}</div>
                 <hr noshade />
