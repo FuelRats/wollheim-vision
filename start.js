@@ -6,7 +6,7 @@ const express = require("express"),
 	crypto = require("crypto"),
 	imageThumbnail = require("image-thumbnail");
 
-/* Loading pages */
+/* Loading pages. */
 
 const layout_head = require("./views/includes/layout_head"),
 	layout_footer = require("./views/includes/layout_footer");
