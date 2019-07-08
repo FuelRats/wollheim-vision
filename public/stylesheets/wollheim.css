@@ -73,6 +73,8 @@ body {
 .screenshotHolder {
 	display: grid;
 	grid-template-columns: 33.3% 33.3% 33.3%;
+	grid-row-gap: 10px;
+	justify-items: stretch;
 }
 
 .screenshot-image {

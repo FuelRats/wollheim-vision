@@ -7,6 +7,14 @@ const express = require("express"),
 const fs = require("fs"),
 	fsLoadCache = require("./fsCache");
 
+/* Loading pages */
+
+const layout_head = require("./views/includes/layout_head");
+const layout_footer = require("./views/includes/layout_footer");
+
+const index = require("./views/index");
+const screenshots = require("./views/screenshots");
+
 const app = express();
 
 app.set("views", "views");
@@ -16,19 +24,13 @@ const galleryImagesPath = process.env.GALLERYPATH || "public/testimages";
 
 app.use("/images/screenshots", express.static(galleryImagesPath));
 
-const layout_head_html = fsLoadCache("./views/includes/layout_head.tl", "utf8");
-const layout_footer_html = fsLoadCache(
-	"./views/includes/layout_footer.tl",
-	"utf8"
-);
-
 app.get("/", function(req, res) {
 	res.send(
-		esDyn(fsLoadCache("./views/index.tl", "utf8"), {
-			layout_head: esDyn(layout_head_html, {
+		index({
+			layout_head: layout_head({
 				title: "Home"
 			}),
-			layout_footer: esDyn(layout_footer_html)
+			layout_footer: layout_footer()
 		})
 	);
 });
@@ -69,12 +71,12 @@ app.get("/screenshots", function(req, res) {
 		.join("")}</div>`;
 
 	res.send(
-		esDyn(fsLoadCache("./views/screenshots.tl", "utf8"), {
-			layout_head: esDyn(layout_head_html, {
-				title: "Screenshots"
+		screenshots({
+			layout_head: layout_head({
+				title: "Home"
 			}),
 			galleryHtml,
-			layout_footer: esDyn(layout_footer_html)
+			layout_footer: layout_footer()
 		})
 	);
 });
