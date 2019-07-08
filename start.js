@@ -8,11 +8,11 @@ const express = require("express"),
 
 /* Loading pages */
 
-const layout_head = require("./views/includes/layout_head");
-const layout_footer = require("./views/includes/layout_footer");
+const layout_head = require("./views/includes/layout_head"),
+	layout_footer = require("./views/includes/layout_footer");
 
-const index = require("./views/index");
-const screenshots = require("./views/screenshots");
+const index = require("./views/index"),
+	screenshots = require("./views/screenshots");
 
 const app = express();
 
