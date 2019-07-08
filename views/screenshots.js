@@ -1,4 +1,10 @@
 module.exports = function(keys) {
+	function _getGalleryURL(pathToFile) {
+		return `/images/screenshots/${pathToFile.substr(
+			keys.galleryImagesPath.length + 1
+		)}`;
+	}
+
 	return /*html*/ `${keys.layout_head}
     <body class="mainBody screenshots">
     <div class='background-video'>
@@ -13,7 +19,13 @@ module.exports = function(keys) {
                 <h1>Wollheim Vision</h1>
                 <b>Here are some screenshots from our rats!</b>
                 <hr noshade />
-                ${keys.galleryHtml}
+                <div class="screenshotHolder">${keys.fileList
+					.map(i => {
+						return `<img class="screenshot-image" loading="lazy" src="${_getGalleryURL(
+							i
+						)}" />`;
+					})
+					.join("")}</div>
                 <hr noshade />
             </div>
         </div>

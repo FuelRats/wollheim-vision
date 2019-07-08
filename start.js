@@ -54,26 +54,13 @@ app.get("/upload", function(req, res) {
 app.get("/screenshots", function(req, res) {
 	const fileList = walkSync(galleryImagesPath);
 
-	function _getGalleryURL(pathToFile) {
-		return `/images/screenshots/${pathToFile.substr(
-			galleryImagesPath.length + 1
-		)}`;
-	}
-
-	let galleryHtml = `<div class="screenshotHolder">${fileList
-		.map(i => {
-			return `<img class="screenshot-image" loading="lazy" src="${_getGalleryURL(
-				i
-			)}" />`;
-		})
-		.join("")}</div>`;
-
 	res.send(
 		screenshots({
 			layout_head: layout_head({
 				title: "Home"
 			}),
-			galleryHtml,
+			fileList,
+			galleryImagesPath,
 			layout_footer: layout_footer()
 		})
 	);
