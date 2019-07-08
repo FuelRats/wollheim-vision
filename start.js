@@ -1,11 +1,9 @@
 "use strict";
 
 const express = require("express"),
-	esDyn = require("es6-dynamic-template"),
 	path = require("path");
 
-const fs = require("fs"),
-	fsLoadCache = require("./fsCache");
+const fs = require("fs");
 
 /* Loading pages */
 
