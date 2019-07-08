@@ -54,7 +54,7 @@ app.get("/upload", function(req, res) {
 });
 
 app.get("/tools", function(req, res) {
-	res.send("Not yet, but soon&trade;.");
+	res.send("Not yet, but soon&trade;. Any time now..");
 });
 
 app.get("/screenshots", function(req, res) {
