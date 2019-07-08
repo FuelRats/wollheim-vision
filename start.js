@@ -53,6 +53,10 @@ app.get("/upload", function(req, res) {
 	res.redirect("https://fuelrats.cloud/s/eXqRPLAGfdZCMr4");
 });
 
+app.get("/tools", function(req, res) {
+	res.send("Not yet, but soon.");
+});
+
 app.get("/screenshots", function(req, res) {
 	const fileList = walkSync(galleryImagesPath);
 
