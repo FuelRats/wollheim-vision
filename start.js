@@ -57,14 +57,18 @@ app.get("/tools", function(req, res) {
 	res.send("Not yet, but soon&trade;.");
 });
 
-app.get("/screenshots", function(req, res) {
+app.get("/screenshots/:page?", function(req, res) {
+	let currentPage = req.params.page ? req.params.page : 1;
 	const fileList = walkSync(galleryImagesPath);
 
 	res.send(
 		screenshots({
 			layout_head: layout_head({
-				title: "Home"
+				title: "Screenshot gallery",
+				head: /*html*/ `
+<link href="lightbox2/css/lightbox.min.css" rel="stylesheet" />`
 			}),
+			currentPage,
 			fileList,
 			galleryImagesPath,
 			layout_footer: layout_footer()
