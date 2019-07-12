@@ -30,7 +30,7 @@ module.exports = function(keys) {
 					.map(i => {
 						return `<a href="${_getGalleryURL(
 							i
-						)}" target="_blank"><img class="screenshot-image" loading="lazy" src="${_getThumbnailURL(
+						)}" target="_blank" data-lightbox="screenshots"><img class="screenshot-image" loading="lazy" src="${_getThumbnailURL(
 							i
 						)}" /></a>`;
 					})
@@ -39,6 +39,7 @@ module.exports = function(keys) {
             </div>
         </div>
         </main>
+        <script src="lightbox2/js/lightbox-plus-jquery.min.js"></script>
     </body>
     ${keys.layout_footer}`.trim();
 };
