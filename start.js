@@ -66,7 +66,7 @@ app.get("/screenshots/:page?", function(req, res) {
 			layout_head: layout_head({
 				title: "Screenshot gallery",
 				head: /*html*/ `
-<link href="lightbox2/css/lightbox.min.css" rel="stylesheet" />`
+<link href="/lightbox2/css/lightbox.min.css" rel="stylesheet" />`
 			}),
 			currentPage,
 			fileList,
