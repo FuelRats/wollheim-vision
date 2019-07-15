@@ -12,7 +12,7 @@ module.exports = function(keys) {
 				<div class="nm row hcenter vcenter" style="height: 100%;">
 					<div class="under_construction_banner">
 						<h1>Wollheim Vision</h1>
-						<h3>A transport is on it's way</h3>
+						<h3>A transport is on its way</h3>
 						<a href="/screenshots">View player submitted screenshots</a><br />
 						<a href="/tools">View available tools</a>
 					</div>
