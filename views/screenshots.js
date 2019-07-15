@@ -1,14 +1,16 @@
 module.exports = function(keys) {
 	const maxItemsPerPage = 12;
+
+	function _getImageFileName(pathToFile) {
+		return pathToFile.substr(keys.galleryImagesPath.length + 1);
+	}
 	function _getGalleryURL(pathToFile) {
-		return `/images/screenshots/${pathToFile.substr(
-			keys.galleryImagesPath.length + 1
-		)}`;
+		return `/images/screenshots/${_getImageFileName(pathToFile)}`;
 	}
 
 	function _getThumbnailURL(pathToFile) {
-		return `/images/screenshots/thumbnails/${pathToFile.substr(
-			keys.galleryImagesPath.length + 1
+		return `/images/screenshots/thumbnails/${_getImageFileName(
+			pathToFile
 		)}`;
 	}
 
@@ -34,7 +36,11 @@ module.exports = function(keys) {
 	const allImages = keys.fileList.map(i => {
 		return `<a href="${_getGalleryURL(
 			i
-		)}" target="_blank" data-lightbox="screenshots"><img class="screenshot-image" loading="lazy" src="${_getThumbnailURL(
+		)}" target="_blank" data-lightbox="screenshots" data-title="${_getImageFileName(
+			i
+		)}" data-alt="${_getImageFileName(
+			i
+		)}"><img class="screenshot-image" loading="lazy" src="${_getThumbnailURL(
 			i
 		)}" /></a>`;
 	});
