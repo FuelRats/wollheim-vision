@@ -22,11 +22,15 @@
 	"homepage": "https://wollheim.vision",
 	"dependencies": {
 		"@fuelrats/eslint-config": "^1.0.1",
-		"express": "^4.17.1",
-		"express-tl": "^1.0.2",
-		"image-thumbnail": "^1.0.4"
+		"express": "^4.22.3",
+		"express-tl": "^1.1.0",
+		"image-thumbnail": "^1.0.17"
 	},
 	"devDependencies": {
-		"nodemon": "^2.0.14"
+		"nodemon": "^3.1.14"
+	},
+	"overrides": {
+		"image-size": "^2.1.0",
+		"sharp": "^0.35.5"
 	}
 }
